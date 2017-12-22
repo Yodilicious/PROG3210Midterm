@@ -5,13 +5,16 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button addComments;
     private Button contactUs;
+    private ArrayAdapter<String> listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void launchActivity2() {
 
