@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
     private void launchImplicitIntent() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:226-232-5520"));
-        startActivity(intent);
-    }
+    startActivity(intent);
+}
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
