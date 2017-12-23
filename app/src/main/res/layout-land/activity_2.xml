@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/pictureFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ca.on.conestogac.jvisser6805.prog3210midterm.PictureFragment"
+            tools:layout="@layout/fragment_picture"
+            android:layout_weight="0.5">
+        </fragment>
+
+        <fragment
+            android:id="@+id/commentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="ca.on.conestogac.jvisser6805.prog3210midterm.CommentFragment"
+            tools:layout="@layout/fragment_comment"
+            android:layout_weight="0.5">
+        </fragment>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
