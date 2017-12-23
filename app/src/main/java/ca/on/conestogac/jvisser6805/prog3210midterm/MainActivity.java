@@ -1,5 +1,6 @@
 package ca.on.conestogac.jvisser6805.prog3210midterm;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -10,16 +11,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends ListActivity {
 
     private Button addComments;
     private Button contactUs;
-    private ArrayAdapter<String> listAdapter;
+    private List<String> listValues = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setListAdapter(null);
+
+        String name = getIntent().getStringExtra("name");
+        String comment = getIntent().getStringExtra("comment");
 
         addComments = (Button) findViewById(R.id.addCommentsButton);
         addComments.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 launchImplicitIntent();
             }
         });
+
+        listValues.add(name + " - " + comment);
+
+        ListViewAdapter myAdapter = new ListViewAdapter(this, listValues.toArray(new String[0]));
+
+        setListAdapter(myAdapter);
     }
 
     private void launchActivity2() {

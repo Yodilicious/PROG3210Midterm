@@ -4,10 +4,39 @@
     android:layout_height="match_parent"
     tools:context="ca.on.conestogac.jvisser6805.prog3210midterm.CommentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="30px"
+            android:text="@string/nameTextView" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/commentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="30px"
+            android:text="@string/commentTextView" />
+
+        <EditText
+            android:id="@+id/commentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/submitCommentsButton"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="@string/submitCommentsButton"/>
+
+    </LinearLayout>
 
 </FrameLayout>

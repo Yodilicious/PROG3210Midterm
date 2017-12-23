@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">PROG3210Midterm</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">PROG 3210 - Midterm</string>
+    <string name="nameTextView">Name</string>
+    <string name="commentTextView">Comment</string>
+    <string name="submitCommentsButton">Submit</string>
 </resources>
