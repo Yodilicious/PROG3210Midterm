@@ -1,3 +1,4 @@
+package ca.on.conestogac.jvisser6805.prog3210midterm;
 
 
 public class ListViewAdapter {
@@ -9,8 +10,7 @@ public class ListViewAdapter {
         public User(String name, String comment) {
             this.name = name;
             this.comment = comment;
-
-//            <!--github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView-->
         }
     }
 }
+
