@@ -2,6 +2,7 @@ package ca.on.conestogac.jvisser6805.prog3210midterm;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MainActivity extends ListActivity {
 
@@ -25,7 +29,13 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setListAdapter(null);
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+
+        Set<String> data = sharedPreferences.getStringSet("list", null);
+
+        if(data != null) {
+            listValues.addAll(data);
+        }
 
         String name = getIntent().getStringExtra("name");
         String comment = getIntent().getStringExtra("comment");
@@ -46,7 +56,16 @@ public class MainActivity extends ListActivity {
             }
         });
 
-        listValues.add(name + " - " + comment);
+        if(name != null && comment != null) {
+
+            listValues.add(name + " - " + comment);
+        }
+
+        Set<String> mySet = new HashSet<String>(Arrays.<String>asList(listValues.toArray(new String[0])));
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putStringSet("list", mySet);
+        editor.commit();
 
         ListViewAdapter myAdapter = new ListViewAdapter(this, listValues.toArray(new String[0]));
 
@@ -64,8 +83,8 @@ public class MainActivity extends ListActivity {
     private void launchImplicitIntent() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:226-232-5520"));
-    startActivity(intent);
-}
+        startActivity(intent);
+    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

@@ -39,8 +39,8 @@ public class CommentFragment extends Fragment {
 
         Toast.makeText(getView().getContext(), nameEditText.getText() + " - " + commentEditText.getText(), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getView().getContext(), MainActivity.class);
-        intent.putExtra("name", nameEditText.getText());
-        intent.putExtra("comment", commentEditText.getText());
+        intent.putExtra("name", nameEditText.getText().toString());
+        intent.putExtra("comment", commentEditText.getText().toString());
         startActivity(intent);
     }
 }
